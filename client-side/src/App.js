@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import  Login  from "./components/Login";
 // import logo from './logo.svg'
 import './App.css'
+
+
 
 class App extends Component {
   constructor() {
@@ -16,25 +19,25 @@ class App extends Component {
     this.setState({ email: e.target.value })
   }
 
-  componentDidMount = () => {
-    // this.service.get
-    // Todo: send the email in the body!!!!! not in the url!
-    fetch('/api/meetups')
-      .then(res => res.json())
-      .then(meetups => {
-        console.log(meetups)
-        let ms = []
-        meetups.forEach(meetup => {
-          // if (meetup.personEmail === this.state.email) {
-          const { name } = meetup
-          ms.push(<li key={meetup.name}>{name}</li>)
-          // }
-        })
+  // componentDidMount = () => {
+  //   // this.service.get
+  //   // Todo: send the email in the body!!!!! not in the url!
+  //   fetch('/api/meetups')
+  //     .then(res => res.json())
+  //     .then(meetups => {
+  //       console.log(meetups)
+  //       let ms = []
+  //       meetups.forEach(meetup => {
+  //         // if (meetup.personEmail === this.state.email) {
+  //         const { name } = meetup
+  //         ms.push(<li key={meetup.name}>{name}</li>)
+  //         // }
+  //       })
 
-        this.setState({ meetups: ms })
-      })
-      .catch(err => console.error(err))
-  }
+  //       this.setState({ meetups: ms })
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
   render() {
     const { meetups } = this.state
@@ -53,6 +56,7 @@ class App extends Component {
         </header>
         {/* <FindYourSelf/> */}
         <div className="main">
+        
           <input
             type="email"
             onChange={this.onChange}
@@ -61,6 +65,7 @@ class App extends Component {
           <button onClick={this.getMeetups}>Search</button>
 
           {/* this will be changed but it's good for now!!! */}
+          <Login />
           <ul>{meetups}</ul>
         </div>
       </div>
