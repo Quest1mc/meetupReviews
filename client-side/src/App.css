@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -9,9 +13,30 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  min-height: 100px;
   padding: 20px;
   color: white;
+}
+
+.main,
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main {
+  width: 80%;
+  margin: 50px auto;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.main>* {
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.2em;
 }
 
 .App-title {
@@ -23,6 +48,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
